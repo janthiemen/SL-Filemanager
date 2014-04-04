@@ -1,0 +1,16 @@
+this.$.file_title.setContent(this.getString(this.$.file_title.getContent());
+this.$.groupboxheader.setContent(this.getString(this.$.groupboxheader.getContent());
+this.$.type.setContent(this.getString(this.$.type.getContent());
+this.$.size.setContent(this.getString(this.$.size.getContent());
+this.$.fileExtension.setContent(this.getString(this.$.fileExtension.getContent());
+this.$.full_path.setContent(this.getString(this.$.full_path.getContent());
+this.$.removeButton.setContent(this.getString(this.$.removeButton.getContent());
+this.$.createDirButton.setContent(this.getString(this.$.createDirButton.getContent());
+this.$.createDirPopupButton.setContent(this.getString(this.$.createDirPopupButton.getContent());
+this.$.openFileButton.setContent(this.getString(this.$.openFileButton.getContent());
+this.$.copyItemButton.setContent(this.getString(this.$.copyItemButton.getContent());
+this.$.moveItemButton.setContent(this.getString(this.$.moveItemButton.getContent());
+this.$.imageHeader.setContent(this.getString(this.$.imageHeader.getContent());
+this.$.errorPopup.setContent(this.getString(this.$.errorPopup.getContent());
+
+newDir.placeholder

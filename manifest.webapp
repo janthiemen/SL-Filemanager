@@ -1,0 +1,24 @@
+{
+	"name": "Filemanager-development",
+	"version": 1.1,
+	"description": "Easy to use file manager for Firefox OS.",
+	"launch_path": "/debug.html",
+	"developer": {
+		"name": "Jan Thiemen Postema",
+		"url": "http://scoutline.org/firefoxos/sl-filemanager/"
+	},
+	"fullscreen": "false",
+	"orientation": "portrait-primary",
+	"type": "privileged",
+	"permissions": {
+		"device-storage:sdcard": { 
+			"description": "Needed to browse files on the device.",
+			"access": "readwrite" 
+		}
+	},
+	"icons": {
+		"30": "/assets/icon_app-30.png",
+		"60": "/assets/icon_app-60.png",
+		"128": "/assets/icon_app-128.png"
+	}
+}
