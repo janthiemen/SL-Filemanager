@@ -40,6 +40,7 @@ enyo.kind({
 		]},
 		{name: "itemView", fit: true, kind: "FittableRows", classes: "enyo-fit", components: [
 			{kind: "onyx.Toolbar", components: [
+				{kind: "onyx.Button", content: "Back", ontap: "showList"},
 				{name: "file_title", content: "Header"},
 			]},
 			{tag: "br"},
@@ -428,7 +429,7 @@ enyo.kind({
 	},
 	rendered: function() {
 		if (localStorage.getItem("firstuse") != "true") this.showFirstUse();
-		else this.loadStrings();
+		else this.loadStrings(localStorage.getItem("language"));
 		this.inherited(arguments);
 		this.currentList = "main";
 		this.currentDir = "";
@@ -437,8 +438,8 @@ enyo.kind({
 	openSettings: function() {
 		this.setIndex(2);
 	},
-	loadStrings: function(language) {
-		var locale = localStorage.getItem("language");
+	loadStrings: function(locale) {
+		console.log("Loading language: "+locale);
 		var request = new enyo.Ajax( { url: 'resources/'+locale+'.json', method: 'GET' } ).response( this, 'initStrings' ).go();
 	},
 	initStrings: function(inSender, inEvent) {
@@ -489,7 +490,7 @@ enyo.kind({
 		this.$.languageSelectorPopup.hide();
 		
 		localStorage.setItem("language",locale);
-		this.loadStrings();
+		this.loadStrings(locale);
 	},
 	reflow: function() {
 		this.inherited(arguments);
@@ -532,6 +533,7 @@ enyo.kind({
 			this.getDirs(this.currentDir);
 			this.selectedItem['full_path'] = this.currentDir;
 			this.$.type.setContent(this.getString("Type: folder"));
+			this.$.size.hide();
 			this.$.fileExtension.hide();
 			this.$.createDirPopupButton.show();
 			this.$.newDirContainer.show();
@@ -548,6 +550,7 @@ enyo.kind({
 			this.$.fileExtension.show();
 			this.$.fileExtension.setContent(this.getString("File extension: ")+fileExtension);
 			this.getFileType(this.selectedItem.full_path);
+			this.$.size.show();
 			this.$.createDirPopupButton.hide();
 			this.$.newDirContainer.hide();
 			this.$.openFileButton.show();
